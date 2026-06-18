@@ -37,30 +37,22 @@ body {
   top: 20px;
   right: 20px;
   z-index: 99999;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   width: 60px;
   height: 60px;
   min-height: 60px;
   padding: 0;
-
   border: 1px solid rgba(31, 37, 40, 0.12);
   border-radius: 50%;
-
   background: rgba(255, 255, 255, 0.96);
   color: #222;
-
   font-size: 1.55rem;
   line-height: 1;
-
   cursor: pointer;
-
   box-shadow: 0 14px 42px rgba(31, 37, 40, 0.22);
   backdrop-filter: blur(18px);
-
   transition:
     transform 200ms ease,
     background 250ms ease,
@@ -100,138 +92,67 @@ body {
 .brand {
   position: relative;
   overflow: hidden;
-  display: grid;
-  align-content: end;
-  min-height: 350px;
-  padding: 22px;
-  border-radius: 14px;
-  background: #1f2528;
-  color: #fff;
-}
-
-.brand-art {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.62)),
-    radial-gradient(
-      circle at 78% 18%,
-      rgba(255, 221, 150, 0.95) 0 34px,
-      transparent 35px
-    ),
-    linear-gradient(180deg, #394449 0%, #202528 45%, #101214 100%);
-}
-
-.brand-art::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(
-      115deg,
-      transparent 0 45%,
-      rgba(255, 255, 255, 0.1) 46%,
-      transparent 57%
-    ),
-    radial-gradient(
-      circle at 20% 18%,
-      rgba(255, 255, 255, 0.16),
-      transparent 34%
-    );
-}
-
-.brand-art::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    transparent 0%,
-    rgba(0, 0, 0, 0.25) 45%,
-    rgba(0, 0, 0, 0.78) 100%
-  );
-}
-
-.brand-art__screen {
-  position: absolute;
-  left: 50%;
-  top: 88px;
-  width: 160px;
-  height: 92px;
-  transform: translateX(-50%);
-  border: 8px solid rgba(201, 154, 66, 0.92);
-  border-radius: 8px;
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.92),
-      rgba(244, 240, 232, 0.72)
-    ),
-    linear-gradient(135deg, #f4f0e8, #ffffff);
-  box-shadow: 0 0 50px rgba(255, 224, 160, 0.34);
-}
-
-.brand-art__screen::after {
-  content: "CINEMA";
-  position: absolute;
-  left: 50%;
-  bottom: -34px;
-  transform: translateX(-50%);
-  color: rgba(255, 255, 255, 0.72);
-  font-size: 0.72rem;
-  font-weight: 900;
-  letter-spacing: 0.18em;
-}
-
-.brand-art__columns {
-  position: absolute;
-  left: 50%;
-  top: 54px;
   display: flex;
-  justify-content: space-between;
-  width: 270px;
-  height: 170px;
-  transform: translateX(-50%);
-}
-
-.brand-art__columns span {
-  width: 18px;
-  border-radius: 999px 999px 4px 4px;
+  min-height: 350px;
+  padding: 26px;
+  border-radius: 14px;
   background:
-    linear-gradient(90deg, rgba(255, 255, 255, 0.25), transparent),
-    linear-gradient(180deg, #c99a42, #8c6630);
-  box-shadow: 0 12px 0 rgba(201, 154, 66, 0.7);
+    radial-gradient(circle at 50% 18%, rgba(255, 255, 255, 0.12), transparent 28%),
+    linear-gradient(180deg, #111316 0%, #060607 100%);
+  color: #fff;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
-.brand-art__seats {
+.brand-glow {
   position: absolute;
-  left: 50%;
-  bottom: -54px;
-  width: 390px;
-  height: 190px;
-  transform: translateX(-50%);
-  border-radius: 50% 50% 0 0;
-  background: repeating-radial-gradient(
-    ellipse at center,
-    rgba(178, 56, 47, 0.95) 0 10px,
-    rgba(31, 37, 40, 0.95) 11px 18px
-  );
-  opacity: 0.96;
+  inset: -40%;
+  background:
+    radial-gradient(circle at 50% 35%, rgba(255, 255, 255, 0.18), transparent 24%),
+    radial-gradient(circle at 50% 70%, rgba(178, 56, 47, 0.22), transparent 25%),
+    radial-gradient(circle at 50% 45%, rgba(201, 154, 66, 0.18), transparent 32%);
+  filter: blur(8px);
+  opacity: 0.9;
+}
+
+.brand::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.4) 100%),
+    linear-gradient(115deg, transparent 0 45%, rgba(255, 255, 255, 0.08) 46%, transparent 57%);
+  pointer-events: none;
+}
+
+.brand-logo {
+  position: relative;
+  z-index: 2;
+  width: min(245px, 88%);
+  margin-bottom: 18px;
+  filter:
+    drop-shadow(0 22px 34px rgba(0, 0, 0, 0.75))
+    drop-shadow(0 0 18px rgba(255, 255, 255, 0.16));
+  transition: transform 250ms ease;
+}
+
+.brand-logo:hover {
+  transform: scale(1.035);
 }
 
 .brand-content {
   position: relative;
-  z-index: 5;
-  margin-top: auto;
+  z-index: 3;
 }
 
 .brand-content h1 {
   margin: 0;
   color: #ffffff;
-  font-size: clamp(2.35rem, 4vw, 4rem);
+  font-size: clamp(2.05rem, 4vw, 3.55rem);
   font-weight: 950;
-  line-height: 0.92;
+  line-height: 0.95;
   letter-spacing: -0.08em;
   text-shadow:
     0 4px 18px rgba(0, 0, 0, 0.82),
@@ -239,12 +160,12 @@ body {
 }
 
 .brand__text {
-  max-width: 300px;
-  margin-top: 18px;
-  color: rgba(255, 255, 255, 0.96);
-  font-size: 1.02rem;
+  max-width: 310px;
+  margin: 18px auto 0;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.98rem;
   font-weight: 600;
-  line-height: 1.75;
+  line-height: 1.7;
   text-shadow:
     0 2px 10px rgba(0, 0, 0, 0.9),
     0 0 20px rgba(0, 0, 0, 0.6);
@@ -253,6 +174,7 @@ body {
 .brand-badge {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   margin-top: 22px;
   padding: 12px 18px;
   border: 1px solid rgba(255, 255, 255, 0.34);
@@ -688,6 +610,13 @@ body.dark-mode .modal-close {
   color: white;
 }
 
+body.dark-mode .brand {
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255, 255, 255, 0.1), transparent 28%),
+    linear-gradient(180deg, #0e1013 0%, #020203 100%);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
 /* RESPONSIVE */
 
 @media (max-width: 840px) {
@@ -702,7 +631,11 @@ body.dark-mode .modal-close {
   }
 
   .brand {
-    min-height: 280px;
+    min-height: 320px;
+  }
+
+  .brand-logo {
+    width: min(230px, 82%);
   }
 
   .modal-poster {
@@ -730,16 +663,26 @@ body.dark-mode .modal-close {
   }
 
   .brand {
-    min-height: 260px;
+    min-height: 300px;
     padding: 18px;
   }
 
+  .brand-logo {
+    width: min(210px, 86%);
+    margin-bottom: 14px;
+  }
+
   .brand-content h1 {
-    font-size: 2.25rem;
+    font-size: 2.1rem;
   }
 
   .brand__text {
-    font-size: 0.94rem;
+    font-size: 0.92rem;
+  }
+
+  .brand-badge {
+    font-size: 0.78rem;
+    padding: 10px 14px;
   }
 
   .results-header {
@@ -761,5 +704,31 @@ body.dark-mode .modal-close {
 
   .modal-content h2 {
     padding-right: 40px;
+  }
+}
+.details-page {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px;
+}
+
+.back-button {
+  margin-bottom: 20px;
+}
+
+.details-container {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 30px;
+}
+
+.details-container img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .details-container {
+    grid-template-columns: 1fr;
   }
 }
