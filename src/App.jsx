@@ -15,6 +15,15 @@ function App() {
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [detailsLoading, setDetailsLoading] = useState(false);
 
+  const [darkMode, setDarkMode] = useState(() => {
+    return localStorage.getItem("theme") === "dark";
+  });
+
+  useEffect(() => {
+    document.body.classList.toggle("dark-mode", darkMode);
+    localStorage.setItem("theme", darkMode ? "dark" : "light");
+  }, [darkMode]);
+
   useEffect(() => {
     function handleEscape(event) {
       if (event.key === "Escape") {
@@ -124,6 +133,15 @@ function App() {
 
   return (
     <>
+      <button
+        className="theme-toggle"
+        onClick={() => setDarkMode(!darkMode)}
+        aria-label="Toggle dark mode"
+        title="Toggle dark mode"
+      >
+        <span>{darkMode ? "☀️" : "🌙"}</span>
+      </button>
+
       <main className="app">
         <section className="search-panel" aria-label="Movie search">
           <div className="brand">

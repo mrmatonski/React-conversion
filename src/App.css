@@ -27,6 +27,52 @@ body {
   font-family:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", sans-serif;
+  transition:
+    background 300ms ease,
+    color 300ms ease;
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 99999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 60px;
+  height: 60px;
+  min-height: 60px;
+  padding: 0;
+
+  border: 1px solid rgba(31, 37, 40, 0.12);
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.96);
+  color: #222;
+
+  font-size: 1.55rem;
+  line-height: 1;
+
+  cursor: pointer;
+
+  box-shadow: 0 14px 42px rgba(31, 37, 40, 0.22);
+  backdrop-filter: blur(18px);
+
+  transition:
+    transform 200ms ease,
+    background 250ms ease,
+    box-shadow 250ms ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-3px) scale(1.07);
+}
+
+.theme-toggle:active {
+  transform: scale(0.92);
 }
 
 .app {
@@ -45,6 +91,10 @@ body {
   border: 1px solid var(--line);
   border-radius: 16px;
   box-shadow: var(--shadow);
+  transition:
+    background 300ms ease,
+    border-color 300ms ease,
+    box-shadow 300ms ease;
 }
 
 .brand {
@@ -318,7 +368,9 @@ button:disabled {
   cursor: pointer;
   transition:
     transform 200ms ease,
-    box-shadow 200ms ease;
+    box-shadow 200ms ease,
+    background 300ms ease,
+    border-color 300ms ease;
 }
 
 .movie-card:hover {
@@ -445,6 +497,7 @@ button:disabled {
   background: var(--ink);
   color: #fff;
   font-size: 1rem;
+  z-index: 2;
 }
 
 .modal-close:hover {
@@ -527,6 +580,116 @@ button:disabled {
   color: var(--ink);
 }
 
+/* DARK MODE */
+
+body.dark-mode {
+  color-scheme: dark;
+  --bg: #101114;
+  --ink: #f5f5f5;
+  --muted: #b7bcc7;
+  --panel: #1b1d22;
+  --line: #32353d;
+  --shadow: 0 18px 48px rgba(0, 0, 0, 0.45);
+
+  background:
+    radial-gradient(circle at top left, #1d2732 0%, transparent 40%),
+    radial-gradient(circle at bottom right, #2f1e1d 0%, transparent 35%),
+    #101114;
+}
+
+body.dark-mode .theme-toggle {
+  background: #2b2d34;
+  color: #ffd54a;
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 0 18px rgba(255, 213, 74, 0.45),
+    0 14px 40px rgba(0, 0, 0, 0.45);
+}
+
+body.dark-mode .search-panel {
+  background: rgba(23, 25, 29, 0.94);
+}
+
+body.dark-mode label {
+  color: #cfd3dc;
+}
+
+body.dark-mode input,
+body.dark-mode select {
+  background: #26292f;
+  color: white;
+  border-color: #3d4148;
+}
+
+body.dark-mode input::placeholder {
+  color: #9aa2ad;
+}
+
+body.dark-mode .movie-card {
+  background: #1d2026;
+  border-color: #363a42;
+}
+
+body.dark-mode .movie-card:hover {
+  box-shadow: 0 20px 42px rgba(0, 0, 0, 0.55);
+}
+
+body.dark-mode .movie-card__content {
+  color: white;
+}
+
+body.dark-mode .movie-card__meta {
+  color: #a8b0ba;
+}
+
+body.dark-mode .results-title {
+  color: white;
+}
+
+body.dark-mode .results-count {
+  color: #b7bcc7;
+}
+
+body.dark-mode .movie-modal {
+  background: #1a1c20;
+  color: white;
+}
+
+body.dark-mode .modal-content h2 {
+  color: white;
+}
+
+body.dark-mode .modal-meta span {
+  background: #2a2d33;
+  border-color: #40454e;
+  color: #ddd;
+}
+
+body.dark-mode .modal-plot {
+  color: #ddd;
+}
+
+body.dark-mode .details-list p {
+  color: #c4cad3;
+}
+
+body.dark-mode .details-list strong {
+  color: white;
+}
+
+body.dark-mode .empty-state,
+body.dark-mode .error-state {
+  background: #1f2228;
+  border-color: #363a42;
+}
+
+body.dark-mode .modal-close {
+  background: #2b2d34;
+  color: white;
+}
+
+/* RESPONSIVE */
+
 @media (max-width: 840px) {
   .search-panel,
   .search-form,
@@ -548,6 +711,15 @@ button:disabled {
 }
 
 @media (max-width: 520px) {
+  .theme-toggle {
+    top: 14px;
+    right: 14px;
+    width: 52px;
+    height: 52px;
+    min-height: 52px;
+    font-size: 1.35rem;
+  }
+
   .app {
     width: min(100% - 20px, 1180px);
     padding: 10px 0 24px;
