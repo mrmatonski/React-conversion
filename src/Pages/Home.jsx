@@ -52,7 +52,7 @@ function Home() {
 
       setMovies(data.Search || []);
       setMessage("");
-    } catch (error) {
+    } catch {
       setMovies([]);
       setMessage("Something went wrong while searching OMDb.");
       setMessageType("error-state");

@@ -28,7 +28,7 @@ function MovieDetails() {
         }
 
         setMovie(data);
-      } catch (error) {
+      } catch {
         alert("Unable to load movie details.");
         navigate("/");
       } finally {
